@@ -1,0 +1,63 @@
+class cat
+class dog
+class truck
+class airplane
+class car
+
+con eyes
+con ears
+con metallic
+con wings
+con wheels
+con beak
+con hairy
+con rectangular
+
+network yolo
+rep clip
+
+Module module_1 (yolo,cat,clip) {
+	
+    E e1 ::> predict(cat)
+
+	# E e2 ::> >(cat,ears,wheels)
+    # E e3 ::> >(cat,ears,metallic)
+    # E e4 ::> >(cat,ears,wings)
+	
+}
+
+Module module_2 (yolo,car,clip) {
+	
+    E e1 ::> predict(car)
+
+	#E e2 ::> >(car,wheels,ears)
+    #E e3 ::> >(car,wheels,eyes)
+    #E e4 ::> >(car,wheels,wings)
+}
+
+Module module_3 (yolo,dog,clip) {
+	
+    E e1 ::> predict(dog)
+
+	#E e2 ::> >(dog,ears,wheels)
+    #E e3 ::> >(dog,ears,metallic)
+    #E e4 ::> >(dog,ears,wings)
+}
+
+Module module_4 (yolo,truck,clip) {
+	
+    E e1 ::> predict(truck)
+
+	#E e2 ::> >(truck,rectangular,eyes)
+    #E e3 ::> >(truck,rectangular,ears)
+    #E e4 ::> >(truck,rectangular,beak)
+}
+
+Module module_5 (yolo,airplane,clip) {
+	
+    E e1 ::> predict(airplane)
+
+	#E e2 ::> >(airplane,wings,eyes)
+    #E e3 ::> >(airplane,wings,ears)
+    #E e4 ::> >(airplane,wings,rectangular)
+}

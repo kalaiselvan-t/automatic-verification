@@ -1,0 +1,100 @@
+ConspecModel:
+    (elements+=Elements)*
+;
+
+Elements:
+    Type | Module
+;
+
+Module:
+    'Module' name=ID triple=Triple '{'
+    (specifications+=Specification)*
+    '}'
+;
+
+Specification:
+    'E' name=ID '::>'
+    (expression_lhs+=Expression)*
+    '=>'
+    (expression_rhs+=Expression)* |
+    'E' name=ID '::>'
+    (expression_lhs+=Expression)*
+;
+
+Expression:
+    ORExpression
+;
+
+ORExpression:
+    left=ANDExpression ('v' right=ANDExpression)*
+;
+
+ANDExpression:
+    left=NotExpression ('^' right+=NotExpression)*
+;
+
+NotExpression:
+    '~' not_exp=NotExpression | exp=PrimaryExpression
+;
+
+PrimaryExpression:
+    '(' Expression ')' | StrengthPredicate | Predict | Membership
+;
+
+StrengthPredicate:
+    '>' '('
+    cls=[Class]
+    ',' 
+    concept_prior=[Concept]
+    ','
+    concept_after=[Concept]
+    ')'
+;
+
+Predict:
+    'predict' '('
+    cls=[Class]
+    ')'
+;
+
+Membership:
+    'hasCon' '('
+    concept+=[Concept]
+    ')'
+;
+
+Type:
+    Image | Concept | Class | Network | ConRep | Triple | ImgCon | Comment
+;
+
+Image:
+    'img' name=ID
+;
+
+Concept:
+    'con' name=ID
+;
+
+Class:
+    'class' name=ID
+;
+
+Network:
+    'network' name=ID
+;
+
+ConRep:
+    'rep' name=ID
+;
+
+Triple:
+    '(' net=[Network] ',' inp=[Class] ',' rep=[ConRep]')'
+;
+
+ImgCon:
+    'imageCon' '(' img=[Image] ')' '=' '{' concept+=[Concept][','] '}'
+;
+
+Comment:
+    /#.*$/
+;
