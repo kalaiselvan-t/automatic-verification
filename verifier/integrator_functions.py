@@ -40,6 +40,10 @@ class Verification:
                     result = mod.result
                     print("Module result: ",result)
                     module_result[element.triple.inp.name] = result
+                # else:
+                #     print(f"\nSkipping: {element.triple.inp.name}")
+                #     print("="*30)
+                #     module_result[element.triple.inp.name] = True
 
         if all(module_result.values()):
             print(module_result)

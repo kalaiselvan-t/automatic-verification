@@ -1,0 +1,688 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology/"
+     xml:base="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:TrafficSignOntology="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorderColor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorderColor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorderShape -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorderShape">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasShape -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasShape">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasNumberValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasNumberValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasTextValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasTextValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#text"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#ahead_only -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#ahead_only">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#blue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#straight_ahead_arrow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#end_of_speed_limit_80 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#end_of_speed_limit_80">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#end_of_lines"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_80"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#black_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_left -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_left">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#blue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_left_arrow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_right -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_right">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#blue"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_right_arrow"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#pedestrians -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#pedestrians">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_triangle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#pedestrian_graphic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#road_work -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#road_work">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_triangle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#road_work_graphic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_30 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_30">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_30"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_60 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_60">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_60"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#stop_sign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#stop_sign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_hexagon_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#stop_text"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#text -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#text">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#wild_animals_crossing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#wild_animals_crossing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBackgroundColor"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasBorder"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_triangle_border"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hasContent"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#animal_graphic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#animal_graphic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#animal_graphic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#black_circle_border -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#black_circle_border">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#blue -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#blue">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#circle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#circle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#end_of_lines -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#end_of_lines">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hexagon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hexagon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_left_arrow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_left_arrow">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_right_arrow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#keep_right_arrow">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#pedestrian_graphic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#pedestrian_graphic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_circle_border -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_circle_border">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <TrafficSignOntology:hasBorderColor rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red"/>
+        <TrafficSignOntology:hasBorderShape rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#circle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_triangle_border -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red_triangle_border">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <TrafficSignOntology:hasBorderColor rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#red"/>
+        <TrafficSignOntology:hasBorderShape rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#triangle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#road_work_graphic -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#road_work_graphic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_30 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_30">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number"/>
+        <TrafficSignOntology:hasNumberValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">30</TrafficSignOntology:hasNumberValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_60 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_60">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number"/>
+        <TrafficSignOntology:hasNumberValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">60</TrafficSignOntology:hasNumberValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_80 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#speed_limit_80">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number"/>
+        <TrafficSignOntology:hasNumberValue rdf:datatype="http://www.w3.org/2001/XMLSchema#int">80</TrafficSignOntology:hasNumberValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#stop_text -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#stop_text">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#text"/>
+        <TrafficSignOntology:hasTextValue>STOP</TrafficSignOntology:hasTextValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#straight_ahead_arrow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#straight_ahead_arrow">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#triangle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#triangle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_circle_border">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <TrafficSignOntology:hasBorderColor rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+        <TrafficSignOntology:hasBorderShape rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#circle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_hexagon_border -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white_hexagon_border">
+        <rdf:type rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+        <TrafficSignOntology:hasBorderColor rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#white"/>
+        <TrafficSignOntology:hasBorderShape rdf:resource="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#hexagon"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#border"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#colors"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#content"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#shapes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#traffic_signs"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#graphic"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#number"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/kalai/ontologies/2024/5/TrafficSignOntology#text"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

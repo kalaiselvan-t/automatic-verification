@@ -72,7 +72,7 @@ Image:
 ;
 
 Concept:
-    'con' name=ID
+    'con' name=ID | INT
 ;
 
 Class:

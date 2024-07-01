@@ -50,7 +50,7 @@ def compare_classes(cls,other_cls,focus_region):
 
 #===========================================================================================================
 
-def strength_predicate(cls,con_list,individual_check = False):
+def strength_predicate(cls,con_list,individual_check = True):
     # if STATUS:
     print(f"Strength Verification of concept: {con_list[0]} & {con_list[1]}\n")
     
@@ -70,8 +70,8 @@ def strength_predicate(cls,con_list,individual_check = False):
 def compare_concepts(focus_region,rel_con,irrel_con):
     if DEBUG:
         print(f"Comparing Concepts {rel_con} & {irrel_con}\n")
-    relevant_concept_embedding = concept_embeddings[rel_con]
-    irrelevant_concept_embedding = concept_embeddings[irrel_con]
+    relevant_concept_embedding = concept_embeddings[rel_con.replace("_"," ")]
+    irrelevant_concept_embedding = concept_embeddings[irrel_con.replace("_"," ")]
 
     result = optimize_strength(focus_region,relevant_concept_embedding,irrelevant_concept_embedding)
     
@@ -123,83 +123,84 @@ def get_image_embeddings(labels = rival10_labels):
     for label in labels:
         if STATUS:
             print(f"Collecting {label} Image Embeddings\n")
-        train_image_paths = [f"{train_data_path}/{label}/{file}" for file in os.listdir(f"{train_data_path}/{label}")]
+        train_image_paths = [f"{train_data_path}/{label.replace("_"," ")}/{file}" for file in os.listdir(f"{train_data_path}/{label.replace("_"," ")}")]
         img_embeddings = collect_image_embeddings(train_image_paths)
         img_embeddings_mean, img_embeddings_std = get_mean_and_std(img_embeddings)
         focus_region = get_focus_region(img_embeddings,img_embeddings_mean,img_embeddings_std)
 
-        image_focus_regions[label] = focus_region
+        image_focus_regions[label.replace("_"," ")] = focus_region
 
 
 def collect_text_embeddings(cls):
-    captions_template = [f"a bad photo of a {cls}",
-                                    f"the cartoon {cls}",
-                                    f"art of the {cls}",
-                                    f"a drawing of the {cls}",
-                                    f"a photo of the large {cls}",
-                                    f"a black and white photo of a {cls}",
-                                    f"a dark photo of a {cls}",
-                                    f"a photo of a cool {cls}",
-                                    f"a photo of a small {cls}",
-                                    f"a photo containing a {cls}",
-                                    f"a photo containing the {cls}",
-                                    f"a photo with a {cls}",
-                                    f"a photo with the {cls}",
-                                    f"a photo containing a {cls} object",
-                                    f"a photo containing the {cls} object",
-                                    f"a photo with a {cls} object",
-                                    f"a photo with the {cls} object",
-                                    f"a photo of a {cls} object",
-                                    f"a photo of the {cls} object"
-                                    f"a bad photo of a {cls}",
-                                    f"a photo of many {cls}",
-                                    f"a photo of the hard to see {cls}",
-                                    f"a low resolution photo of the {cls}",
-                                    f"a rendering of a {cls}",
-                                    f"a bad photo of the {cls}",
-                                    f"a cropped photo of the {cls}",
-                                    f"a photo of a hard to see {cls}",
-                                    f"a bright photo of a {cls}",
-                                    f"a photo of a clean {cls}",
-                                    f"a photo of a dirty {cls}",
-                                    f"a dark photo of the {cls}",
-                                    f"a drawing of a {cls}",
-                                    f"a photo of my {cls}",
-                                    f"a photo of the cool {cls}",
-                                    f"a close-up photo of a {cls}",
-                                    f"a black and white photo of the {cls}",
-                                    f"a painting of the {cls}",
-                                    f"a painting of a {cls}",
-                                    f"a pixelated photo of the {cls}",
-                                    f"a bright photo of the {cls}",
-                                    f"a cropped photo of a {cls}",
-                                    f"a photo of the dirty {cls}",
-                                    f"a jpeg corrupted photo of a {cls}",
-                                    f"a blurry photo of the {cls}",
-                                    f"a photo of the {cls}",
-                                    f"a good photo of the {cls}",
-                                    f"a rendering of the {cls}",
-                                    f"a {cls} in an image",
-                                    f"a photo of one {cls}",
-                                    f"a doodle of a {cls}",
-                                    f"a close-up photo of the {cls}",
-                                    f"a photo of a {cls}",
-                                    f"the {cls} in an image",
-                                    f"a sketch of a {cls}",
-                                    f"a doodle of the {cls}",
-                                    f"a low resolution photo of a {cls}",
-                                    f"a photo of the clean {cls}",f"a photo of a large {cls}",
-                                    f"a photo of a nice {cls}",
-                                    f"a photo of a weird {cls}",
-                                    f"a blurry photo of a {cls}",
-                                    f"a cartoon {cls}",
-                                    f"art of a {cls}",
-                                    f"a sketch of the {cls}",
-                                    f"a pixelated photo of a {cls}",
-                                    f"a jpeg corrupted photo of the {cls}",
-                                    f"a good photo of a {cls}",
-                                    f"a photo of the nice {cls}",
-                                    f"a photo of the small {cls}"]
+    captions_template = [f"a bad photo of a {cls} traffic sign",
+                                    f"the cartoon {cls} traffic sign",
+                                    f"art of the {cls} traffic sign",
+                                    f"a drawing of the {cls} traffic sign",
+                                    f"a photo of the large {cls} traffic sign",
+                                    f"a black and white photo of a {cls} traffic sign",
+                                    f"a dark photo of a {cls} traffic sign",
+                                    f"a photo of a cool {cls} traffic sign",
+                                    f"a photo of a small {cls} traffic sign",
+                                    f"a photo containing a {cls} traffic sign",
+                                    f"a photo containing the {cls} traffic sign",
+                                    f"a photo with a {cls} traffic sign",
+                                    f"a photo with the {cls} traffic sign",
+                                    f"a photo containing a {cls} sign",
+                                    f"a photo containing the {cls} sign",
+                                    f"a photo with a {cls} sign",
+                                    f"a photo with the {cls} sign",
+                                    f"a photo of a {cls} sign",
+                                    f"a photo of the {cls} sign"
+                                    f"a bad photo of a {cls} traffic sign",
+                                    f"a photo of many {cls} traffic sign",
+                                    f"a photo of the hard to see {cls} traffic sign",
+                                    f"a low resolution photo of the {cls} traffic sign",
+                                    f"a rendering of a {cls} traffic sign",
+                                    f"a bad photo of the {cls} traffic sign",
+                                    f"a cropped photo of the {cls} traffic sign",
+                                    f"a photo of a hard to see {cls} traffic sign",
+                                    f"a bright photo of a {cls} traffic sign",
+                                    f"a photo of a clean {cls} traffic sign",
+                                    f"a photo of a dirty {cls} traffic sign",
+                                    f"a dark photo of the {cls} traffic sign",
+                                    f"a drawing of a {cls} traffic sign",
+                                    f"a photo of my {cls} traffic sign" ,
+                                    f"a photo of the cool {cls} traffic sign",
+                                    f"a close-up photo of a {cls} traffic sign",
+                                    f"a black and white photo of the {cls} traffic sign",
+                                    f"a painting of the {cls} traffic sign",
+                                    f"a painting of a {cls} traffic sign",
+                                    f"a pixelated photo of the {cls} traffic sign",
+                                    f"a bright photo of the {cls} traffic sign",
+                                    f"a cropped photo of a {cls} traffic sign",
+                                    f"a photo of the dirty {cls} traffic sign",
+                                    f"a jpeg corrupted photo of a {cls} traffic sign",
+                                    f"a blurry photo of the {cls} traffic sign",
+                                    f"a photo of the {cls} traffic sign",
+                                    f"a good photo of the {cls} traffic sign",
+                                    f"a rendering of the {cls} traffic sign",
+                                    f"a {cls} traffic sign in an image",
+                                    f"a photo of one {cls} traffic sign",
+                                    f"a doodle of a {cls} traffic sign",
+                                    f"a close-up photo of the {cls} traffic sign",
+                                    f"a photo of a {cls} traffic sign",
+                                    f"the {cls} traffic sign in an image",
+                                    f"a sketch of a {cls} traffic sign",
+                                    f"a doodle of the {cls} traffic sign",
+                                    f"a low resolution photo of a {cls} traffic sign",
+                                    f"a photo of the clean {cls} traffic sign",
+                                    f"a photo of a large {cls} traffic sign",
+                                    f"a photo of a nice {cls} traffic sign",
+                                    f"a photo of a weird {cls} traffic sign",
+                                    f"a blurry photo of a {cls} traffic sign",
+                                    f"a cartoon {cls} traffic sign",
+                                    f"art of a {cls} traffic sign",
+                                    f"a sketch of the {cls} traffic sign",
+                                    f"a pixelated photo of a {cls} traffic sign",
+                                    f"a jpeg corrupted photo of the {cls} traffic sign",
+                                    f"a good photo of a {cls} traffic sign",
+                                    f"a photo of the nice {cls} traffic sign",
+                                    f"a photo of the small {cls} traffic sign"]
             
     text_token = clip.tokenize(captions_template).cuda()
 
@@ -209,7 +210,8 @@ def collect_text_embeddings(cls):
     return text_features
 
 def collect_concept_embeddings(con):
-            
+    
+    con = f"a road traffic sign with {con}"
     text_token = clip.tokenize([con]).cuda()
 
     with torch.no_grad():

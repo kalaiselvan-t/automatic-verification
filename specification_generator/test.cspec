@@ -1,63 +1,90 @@
-class cat
-class dog
-class truck
-class airplane
-class car
+class stop
+class wild_animals_cossing
+class pedestrians
+class keep_left
+class keep_right
+class ahead_only
+class speed_limit_30
+class speed_limit_60kmph
+class end_of_speed_limit_80
+class road_work
 
-con eyes
-con ears
-con metallic
-con wings
-con wheels
-con beak
-con hairy
-con rectangular
+con triangle
+con hexagon
+con circle
+con stop_text
+con animals_graphic
+con keep_left_arrow
+con keep_right_arrow
+con thirty
+con sixty
+con eighty
+con end_of_lines
+con road_work_graphic
+con downward_facing_arrow_tilted_left
+con downward_facing_arrow_tilted_right
+con pedestrian_graphic
 
 network yolo
 rep clip
 
-Module module_1 (yolo,cat,clip) {
+Module module_1 (yolo,road_work,clip) {
 	
-    E e1 ::> predict(cat)
+    E e1 ::> predict(road_work)
 
-	# E e2 ::> >(cat,ears,wheels)
-    # E e3 ::> >(cat,ears,metallic)
-    # E e4 ::> >(cat,ears,wings)
+	# E e2 ::> >(road_work,hexagon,triangle)
+    # E e3 ::> >(road_work,hexagon,circle)
 	
 }
 
-Module module_2 (yolo,car,clip) {
+Module module_2 (yolo,stop,clip) {
 	
-    E e1 ::> predict(car)
+    E e1 ::> predict(stop)
 
-	#E e2 ::> >(car,wheels,ears)
-    #E e3 ::> >(car,wheels,eyes)
-    #E e4 ::> >(car,wheels,wings)
+	E e2 ::> >(stop,hexagon,triangle)
+    E e3 ::> >(stop,hexagon,circle)
+
+    E e4 ::> >(stop, stop_text, pedestrian_graphic)
+    E e5 ::> >(stop, stop_text, animals_graphic)
+    E e55 ::> >(stop, stop_text, eighty)
+
+    E e6 ::> >(stop, pedestrian_graphic, stop_text)
+    E e7 ::> >(stop, animals_graphic, stop_text)	
+
 }
 
-Module module_3 (yolo,dog,clip) {
+Module module_3 (yolo,pedestrians,clip) {
 	
-    E e1 ::> predict(dog)
+    E e1 ::> predict(pedestrians)
 
-	#E e2 ::> >(dog,ears,wheels)
-    #E e3 ::> >(dog,ears,metallic)
-    #E e4 ::> >(dog,ears,wings)
+	# E e2 ::> >(pedestrians,pedestrian_graphic,animals_graphic)
+    # E e3 ::> >(pedestrians,pedestrian_graphic,road_work_graphic)
+	
 }
 
-Module module_4 (yolo,truck,clip) {
+Module module_3 (yolo,keep_left,clip) {
 	
-    E e1 ::> predict(truck)
+    E e1 ::> predict(keep_left)
 
-	#E e2 ::> >(truck,rectangular,eyes)
-    #E e3 ::> >(truck,rectangular,ears)
-    #E e4 ::> >(truck,rectangular,beak)
+	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_left,animals_graphic)
+    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_left,road_work_graphic)
+	
 }
 
-Module module_5 (yolo,airplane,clip) {
+Module module_3 (yolo,keep_right,clip) {
 	
-    E e1 ::> predict(airplane)
+    E e1 ::> predict(keep_right)
 
-	#E e2 ::> >(airplane,wings,eyes)
-    #E e3 ::> >(airplane,wings,ears)
-    #E e4 ::> >(airplane,wings,rectangular)
+	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_right,animals_graphic)
+    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_right,road_work_graphic)
+	
+}
+
+Module module_3 (yolo,speed_limit_60kmph,clip) {
+	
+    E e1 ::> predict(keep_right)
+
+	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_right,animals_graphic)
+    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_right,road_work_graphic)
+	
 }

@@ -6,6 +6,7 @@ from string import Template
 import re
 
 from specification_generator.config import *
+from specification_generator.common import *
 
 #=========================Setup===========================
 #------------------------Grammar--------------------------
@@ -218,4 +219,5 @@ rep = "clip"
     
 
 if __name__ == "__main__":
-    generate_specifications()
+    # generate_specifications()
+    gen = Specification_generator(concepts=concepts,common_data=common_data,traffic_signs=traffic_signs)
