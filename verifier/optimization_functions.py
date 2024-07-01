@@ -7,18 +7,21 @@ def verification_setup(to_verify = verification_labels):
     get_concept_text_embeddings(concepts)
 
 def predict_predicate(cls, individual_check=True):
+    cls = cls.replace("_"," ")
     if STATUS:
         print(f"Prediction Verification of class: {cls}\n")
 
-    if cls not in image_focus_regions.keys():
+    if cls.replace("_"," ") not in image_focus_regions.keys():
         print("cls focus region missing\n")
     else:
         focus_region = image_focus_regions[cls]
 
         if individual_check:
+            # print("Individual Check\n")
             verification_result = []
             for label in verification_labels:
                 if label != cls:
+                    # print(label)
                     verification_result.append(compare_classes(cls,label,focus_region))
             result = all(verification_result)
         else:
@@ -32,6 +35,8 @@ def predict_predicate(cls, individual_check=True):
         return result
 
 def compare_classes(cls,other_cls,focus_region):
+    if STATUS:
+        print(f"Comparing Classes {cls} & {other_cls}\n")
     cls_text_embedding = class_embeddings[cls]
     other_cls_text_embedding = class_embeddings[other_cls]
 
@@ -51,6 +56,7 @@ def compare_classes(cls,other_cls,focus_region):
 #===========================================================================================================
 
 def strength_predicate(cls,con_list,individual_check = True):
+    cls = cls.replace("_"," ")
     # if STATUS:
     print(f"Strength Verification of concept: {con_list[0]} & {con_list[1]}\n")
     
@@ -123,12 +129,12 @@ def get_image_embeddings(labels = rival10_labels):
     for label in labels:
         if STATUS:
             print(f"Collecting {label} Image Embeddings\n")
-        train_image_paths = [f"{train_data_path}/{label.replace("_"," ")}/{file}" for file in os.listdir(f"{train_data_path}/{label.replace("_"," ")}")]
+        train_image_paths = [f"{train_data_path}/{label}/{file}" for file in os.listdir(f"{train_data_path}/{label}")]
         img_embeddings = collect_image_embeddings(train_image_paths)
         img_embeddings_mean, img_embeddings_std = get_mean_and_std(img_embeddings)
         focus_region = get_focus_region(img_embeddings,img_embeddings_mean,img_embeddings_std)
 
-        image_focus_regions[label.replace("_"," ")] = focus_region
+        image_focus_regions[label] = focus_region
 
 
 def collect_text_embeddings(cls):

@@ -15,6 +15,10 @@ class Verification:
 
         verification_setup()
 
+        # print(image_focus_regions.keys())
+        # print(class_embeddings.keys())
+        # print(concept_embeddings.keys())
+
         self.result = self.interpret(self.model)
 
         print("Verification process completed, overall result: ",self.result)
@@ -33,7 +37,8 @@ class Verification:
             if element.__class__.__name__ == "ConRep":
                 rep_list.append(element.name)
             if element.__class__.__name__ == "Module":
-                if element.triple.inp.name in self.verification_list:
+                print(self.verification_list, element.triple.inp.name)
+                if element.triple.inp.name.replace("_"," ") in self.verification_list:
                     print(f"\nVerifying: {element.triple.inp.name}")
                     print("="*30)
                     mod = Module(element)

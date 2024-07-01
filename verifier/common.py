@@ -11,8 +11,8 @@ from textx import metamodel_from_file
 
 
 # rival10_labels = ("airplane","car","bird","cat","deer","dog", "frog", "horse", "ship","truck")
-rival10_labels = ["stop", "speed limit 30kmph", "speed_limit_60kmph", "speed limit 80kmph", "end of speed 80kmph", "yield"]
-verification_labels = ["stop","speed limit 30kmph","speed limit 60kmph","speed limit 80kmph","end of speed limit 80kmph", "yield"]
+rival10_labels = ["stop","speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph" ]
+verification_labels = ["stop", "speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph"]
 
 # train_data_path = "/home/kalai/Downloads/RIVAL10/train"
 train_data_path = "/home/kalai/Downloads/GTSRB_Final_Training_Images/GTSRB/Final_Training/Images"
@@ -43,10 +43,10 @@ relevant_concepts = {"stop": ["hexagon","stop text"],
                      "road work": ["triangle","road work graphic"],
                      "keep left": ["circle","downward facing arrow tilted left"],
                      "keep right": ["circle","downward facing arrow tilted right"],
-                     "speed limit 30": ["circle","30"],
-                     "speed limit 60kmph": ["circle","60"],
-                     "speed limit 80": ["circle","80"],
-                     "end of speed 80": ["circle", "80", "striked out"],}
+                     "speed limit 30kmph": ["circle","number thirty"],
+                     "speed limit 60kmph": ["circle","number sixty"],
+                     "speed limit 80kmph": ["circle","number eighty"],
+                     "end of speed limit 80kmph": ["circle", "number eighty", "striked out graphic"],}
 
 # concepts = ["wings","metallic","long","tall","wheels","rectangular","ears","eyes","hairy","text","wet","longsnout","floppyears","tail","mane","beak","patterned","horns","colored-eyes"]
-concepts = ["triangle","hexagon","circle","stop text","pedestrian graphic","animals graphic","road work graphic","keep left arrow","keep right arrow","30","60","eighty","striked out","downward facing arrow tilted left","downward facing arrow tilted right"]
+concepts = ["triangle shape","hexagon shape","circle shape","stop text","children graphic","pedestrian graphic","animals graphic","road work graphic","number thirty","number sixty","number eighty","striked out graphic","downward facing arrow tilted left","downward facing arrow tilted right"]

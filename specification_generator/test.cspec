@@ -1,90 +1,73 @@
 class stop
-class wild_animals_cossing
-class pedestrians
-class keep_left
-class keep_right
-class ahead_only
-class speed_limit_30
+class children_crossing
+class speed_limit_30kmph
 class speed_limit_60kmph
-class end_of_speed_limit_80
-class road_work
+class end_of_speed_limit_80kmph
 
-con triangle
-con hexagon
-con circle
+con hexagon_shape
+con triangle_shape
+con circle_shape
+
 con stop_text
+
+con children_graphic
 con animals_graphic
-con keep_left_arrow
-con keep_right_arrow
-con thirty
-con sixty
-con eighty
-con end_of_lines
-con road_work_graphic
-con downward_facing_arrow_tilted_left
-con downward_facing_arrow_tilted_right
-con pedestrian_graphic
+con striked_out_graphic
+
+con number_thirty
+con number_sixty
 
 network yolo
 rep clip
 
-Module module_1 (yolo,road_work,clip) {
-	
-    E e1 ::> predict(road_work)
-
-	# E e2 ::> >(road_work,hexagon,triangle)
-    # E e3 ::> >(road_work,hexagon,circle)
-	
-}
-
-Module module_2 (yolo,stop,clip) {
+Module module_1 (yolo,stop,clip) {
 	
     E e1 ::> predict(stop)
 
-	E e2 ::> >(stop,hexagon,triangle)
-    E e3 ::> >(stop,hexagon,circle)
+	E e2 ::> >(stop,hexagon_shape,triangle_shape)
+    E e3 ::> >(stop,hexagon_shape,circle_shape)
 
-    E e4 ::> >(stop, stop_text, pedestrian_graphic)
-    E e5 ::> >(stop, stop_text, animals_graphic)
-    E e55 ::> >(stop, stop_text, eighty)
-
-    E e6 ::> >(stop, pedestrian_graphic, stop_text)
-    E e7 ::> >(stop, animals_graphic, stop_text)	
-
-}
-
-Module module_3 (yolo,pedestrians,clip) {
-	
-    E e1 ::> predict(pedestrians)
-
-	# E e2 ::> >(pedestrians,pedestrian_graphic,animals_graphic)
-    # E e3 ::> >(pedestrians,pedestrian_graphic,road_work_graphic)
+    E e4 ::> >(stop,stop_text,number_thirty)
 	
 }
 
-Module module_3 (yolo,keep_left,clip) {
+Module module_2 (yolo,children_crossing,clip) {
 	
-    E e1 ::> predict(keep_left)
+    E e1 ::> predict(children_crossing)
 
-	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_left,animals_graphic)
-    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_left,road_work_graphic)
+	E e2 ::> >(children_crossing,circle_shape,triangle_shape)
+    E e3 ::> >(children_crossing,circle_shape,hexagon_shape)
+
+    E e4 ::> >(children_crossing,children_graphic,animals_graphic)
 	
 }
 
-Module module_3 (yolo,keep_right,clip) {
+Module module_3 (yolo,speed_limit_30kmph,clip) {
 	
-    E e1 ::> predict(keep_right)
+    E e1 ::> predict(speed_limit_30kmph)
 
-	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_right,animals_graphic)
-    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_right,road_work_graphic)
+	E e2 ::> >(speed_limit_30kmph,circle_shape,triangle_shape)
+    E e3 ::> >(speed_limit_30kmph,circle_shape,hexagon_shape)
+    E e4 ::> >(speed_limit_30kmph,number_thirty,number_sixty)
 	
 }
 
 Module module_3 (yolo,speed_limit_60kmph,clip) {
 	
-    E e1 ::> predict(keep_right)
+    E e1 ::> predict(speed_limit_60kmph)
 
-	E e2 ::> >(pedestrians,downward_facing_arrow_tilted_right,animals_graphic)
-    E e3 ::> >(pedestrians,downward_facing_arrow_tilted_right,road_work_graphic)
+	E e2 ::> >(speed_limit_60kmph,circle_shape,triangle_shape)
+    E e3 ::> >(speed_limit_60kmph,circle_shape,hexagon_shape)
+    E e4 ::> >(speed_limit_60kmph,number_sixty,number_thirty)
+	
+}
+
+Module module_4 (yolo,end_of_speed_limit_80kmph,clip) {
+	
+    E e1 ::> predict(end_of_speed_limit_80kmph)
+
+	E e2 ::> >(end_of_speed_limit_80kmph,circle_shape,triangle_shape)
+    E e3 ::> >(end_of_speed_limit_80kmph,circle_shape,hexagon_shape)
+    E e4 ::> >(end_of_speed_limit_80kmph,striked_out_graphic, number_thirty)
 	
 }
