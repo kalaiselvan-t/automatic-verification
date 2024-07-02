@@ -5,6 +5,5 @@ from verifier.integrator_functions import Verification
 
 if __name__ == "__main__":
     generate_specifications()
-    result = Verification(grammar_file,test_file,["cat"]).result
+    result = Verification(grammar_file,spec_file,["dog"]).result
     print(result)
-    
