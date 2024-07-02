@@ -1,4 +1,6 @@
 class stop
+class pedestrians
+class wild_animals_crossing
 class children_crossing
 class speed_limit_30kmph
 class speed_limit_60kmph
@@ -13,9 +15,11 @@ con stop_text
 con children_graphic
 con animals_graphic
 con striked_out_graphic
+con pedestrian_graphic
 
 con number_thirty
 con number_sixty
+con number_eighty
 
 network yolo
 rep clip
@@ -28,18 +32,34 @@ Module module_1 (yolo,stop,clip) {
     E e3 ::> >(stop,hexagon_shape,circle_shape)
 
     E e4 ::> >(stop,stop_text,number_thirty)
-	
+    E e5 ::> >(stop,stop_text,number_sixty)
+    E e6 ::> >(stop,stop_text,number_eighty)
+    E e7 ::> >(stop,stop_text,children_graphic)
+    E e8 ::> >(stop,stop_text,pedestrian_graphic)
+    E e9 ::> >(stop,stop_text,striked_out_graphic)
+    E e10 ::> >(stop,stop_text,animals_graphic)
+
+    #E e11 ::> >(stop,children_graphic,stop_text)
+    #E e12 ::> >(stop,pedestrian_graphic,stop_text)
+    #E e13 ::> >(stop,striked_out_graphic,stop_text)
+    #E e13 ::> >(stop,animals_graphic,stop_text)
 }
 
 Module module_2 (yolo,children_crossing,clip) {
 	
     E e1 ::> predict(children_crossing)
 
-	E e2 ::> >(children_crossing,circle_shape,triangle_shape)
-    E e3 ::> >(children_crossing,circle_shape,hexagon_shape)
+	E e2 ::> >(children_crossing,triangle_shape,circle_shape)
+    E e3 ::> >(children_crossing,triangle_shape,hexagon_shape)
 
-    E e4 ::> >(children_crossing,children_graphic,animals_graphic)
-	
+    E e4 ::> >(children_crossing,children_graphic,stop_text)
+    E e5 ::> >(children_crossing,children_graphic,number_thirty)
+    E e6 ::> >(children_crossing,children_graphic,number_sixty)
+    E e7 ::> >(children_crossing,children_graphic,number_eighty)
+    E e8 ::> >(children_crossing,children_graphic,striked_out_graphic)
+    E e9 ::> >(children_crossing,children_graphic,pedestrian_graphic)
+    E e10 ::> >(children_crossing,children_graphic,animals_graphic)
+
 }
 
 Module module_3 (yolo,speed_limit_30kmph,clip) {
@@ -48,7 +68,14 @@ Module module_3 (yolo,speed_limit_30kmph,clip) {
 
 	E e2 ::> >(speed_limit_30kmph,circle_shape,triangle_shape)
     E e3 ::> >(speed_limit_30kmph,circle_shape,hexagon_shape)
-    E e4 ::> >(speed_limit_30kmph,number_thirty,number_sixty)
+
+    E e4 ::> >(speed_limit_30kmph,number_thirty,stop_text)
+    E e5 ::> >(speed_limit_30kmph,number_thirty,number_sixty)
+    E e6 ::> >(speed_limit_30kmph,number_thirty,number_eighty)
+    E e7 ::> >(speed_limit_30kmph,number_thirty,striked_out_graphic)
+    E e8 ::> >(speed_limit_30kmph,number_thirty,children_graphic)
+    E e9 ::> >(speed_limit_30kmph,number_thirty,pedestrian_graphic)
+    E e10 ::> >(speed_limit_30kmph,number_thirty,animals_graphic)
 	
 }
 
@@ -58,8 +85,14 @@ Module module_3 (yolo,speed_limit_60kmph,clip) {
 
 	E e2 ::> >(speed_limit_60kmph,circle_shape,triangle_shape)
     E e3 ::> >(speed_limit_60kmph,circle_shape,hexagon_shape)
-    E e4 ::> >(speed_limit_60kmph,number_sixty,number_thirty)
-	
+
+    E e4 ::> >(speed_limit_60kmph,number_sixty,stop_text)
+    E e5 ::> >(speed_limit_60kmph,number_sixty,number_thirty)
+    E e6 ::> >(speed_limit_60kmph,number_sixty,number_eighty)
+    E e7 ::> >(speed_limit_60kmph,number_sixty,striked_out_graphic)
+    E e8 ::> >(speed_limit_60kmph,number_sixty,children_graphic)
+    E e9 ::> >(speed_limit_60kmph,number_sixty,pedestrian_graphic)
+    E e10 ::> >(speed_limit_60kmph,number_sixty,animals_graphic)
 }
 
 Module module_4 (yolo,end_of_speed_limit_80kmph,clip) {
@@ -68,6 +101,56 @@ Module module_4 (yolo,end_of_speed_limit_80kmph,clip) {
 
 	E e2 ::> >(end_of_speed_limit_80kmph,circle_shape,triangle_shape)
     E e3 ::> >(end_of_speed_limit_80kmph,circle_shape,hexagon_shape)
-    E e4 ::> >(end_of_speed_limit_80kmph,striked_out_graphic, number_thirty)
+
+    E e4 ::> >(end_of_speed_limit_80kmph,number_eighty,stop_text)
+    E e5 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,stop_text)
+
+    E e6 ::> >(end_of_speed_limit_80kmph,number_eighty,number_thirty)
+    E e7 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,number_thirty)
+
+    E e8 ::> >(end_of_speed_limit_80kmph,number_eighty,number_sixty)
+    E e9 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,number_sixty)
+
+    E e10 ::> >(end_of_speed_limit_80kmph,number_eighty,children_graphic)
+    E e11 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,children_graphic)
+
+    E e12 ::> >(end_of_speed_limit_80kmph,number_eighty,pedestrian_graphic)
+    E e13 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,pedestrian_graphic)
+
+    E e14 ::> >(end_of_speed_limit_80kmph,number_eighty,animals_graphic)
+    E e15 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,animals_graphic)
+}
+
+Module module_4 (yolo,pedestrians,clip) {
+	
+    E e1 ::> predict(pedestrians)
+
+    E e2 ::> >(pedestrians,triangle_shape,circle_shape)
+    E e3 ::> >(pedestrians,triangle_shape,hexagon_shape)
+
+	E e4 ::> >(pedestrians,pedestrian_graphic,stop_text)
+    E e5 ::> >(pedestrians,pedestrian_graphic,number_thirty)
+    E e6 ::> >(pedestrians,pedestrian_graphic,number_sixty)
+    E e7 ::> >(pedestrians,pedestrian_graphic,number_eighty)
+    E e8 ::> >(pedestrians,pedestrian_graphic,striked_out_graphic)
+    E e9 ::> >(pedestrians,pedestrian_graphic,children_graphic)
+    E e10 ::> >(pedestrians,pedestrian_graphic,animals_graphic)
+	
+}
+
+Module module_4 (yolo,wild_animals_crossing,clip) {
+	
+    E e1 ::> predict(wild_animals_crossing)
+
+	E e2 ::> >(wild_animals_crossing,triangle_shape,circle_shape)
+    E e3 ::> >(wild_animals_crossing,triangle_shape,hexagon_shape)
+
+	E e4 ::> >(wild_animals_crossing,animals_graphic,stop_text)
+    E e5 ::> >(wild_animals_crossing,animals_graphic,number_thirty)
+    E e6 ::> >(wild_animals_crossing,animals_graphic,number_sixty)
+    E e7 ::> >(wild_animals_crossing,animals_graphic,number_eighty)
+    E e8 ::> >(wild_animals_crossing,animals_graphic,striked_out_graphic)
+    E e9 ::> >(wild_animals_crossing,animals_graphic,children_graphic)
+    E e10 ::> >(wild_animals_crossing,animals_graphic,pedestrian_graphic)
 	
 }

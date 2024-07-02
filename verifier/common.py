@@ -11,8 +11,8 @@ from textx import metamodel_from_file
 
 
 # rival10_labels = ("airplane","car","bird","cat","deer","dog", "frog", "horse", "ship","truck")
-rival10_labels = ["stop","speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph" ]
-verification_labels = ["stop", "speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph"]
+rival10_labels = ["stop","speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph", "pedestrians", "wild animals crossing"]
+verification_labels = ["stop", "speed limit 30kmph", "speed limit 60kmph", "children crossing", "end of speed limit 80kmph", "pedestrians", "wild animals crossing"]
 
 # train_data_path = "/home/kalai/Downloads/RIVAL10/train"
 train_data_path = "/home/kalai/Downloads/GTSRB_Final_Training_Images/GTSRB/Final_Training/Images"
