@@ -50,7 +50,7 @@ def compare_classes(cls,other_cls,focus_region):
 
 #===========================================================================================================
 
-def strength_predicate(cls,con_list,individual_check = False):
+def strength_predicate(cls,con_list,individual_check = True):
     # if STATUS:
     print(f"Strength Verification of concept: {con_list[0]} & {con_list[1]}\n")
     

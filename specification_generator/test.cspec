@@ -9,9 +9,10 @@ con ears
 con metallic
 con wings
 con wheels
-con beak
+con long
 con hairy
 con rectangular
+con rudder
 
 network yolo
 rep clip
@@ -20,44 +21,78 @@ Module module_1 (yolo,cat,clip) {
 	
     E e1 ::> predict(cat)
 
-	# E e2 ::> >(cat,ears,wheels)
-    # E e3 ::> >(cat,ears,metallic)
-    # E e4 ::> >(cat,ears,wings)
-	
+	E e2 ::> >(cat,ears,wheels)
+    E e3 ::> >(cat,ears,metallic)
+    E e4 ::> >(cat,ears,wings)
+    E e5 ::> >(cat,ears,rectangular)
+    E e6 ::> >(cat,ears,long)
+
+    E e7 ::> >(cat,eyes,wheels)
+    E e8 ::> >(cat,eyes,metallic)
+    E e9 ::> >(cat,eyes,wings)
+    E e10 ::> >(cat,eyes,rectangular)
+    E e11 ::> >(cat,eyes,long)
+
 }
 
 Module module_2 (yolo,car,clip) {
 	
     E e1 ::> predict(car)
 
-	#E e2 ::> >(car,wheels,ears)
-    #E e3 ::> >(car,wheels,eyes)
-    #E e4 ::> >(car,wheels,wings)
+	E e2 ::> >(car,wheels,ears)
+    E e3 ::> >(car,wheels,eyes)
+    E e4 ::> >(car,wheels,wings)
+    E e5 ::> >(car,wheels,long)
+    
+    E e6 ::> >(car,metallic,ears)
+    E e7 ::> >(car,metallic,eyes)
+    E e8 ::> >(car,metallic,wings)
+    E e9 ::> >(car,metallic,long)
 }
 
 Module module_3 (yolo,dog,clip) {
 	
     E e1 ::> predict(dog)
 
-	#E e2 ::> >(dog,ears,wheels)
-    #E e3 ::> >(dog,ears,metallic)
-    #E e4 ::> >(dog,ears,wings)
+	E e2 ::> >(dog,ears,wheels)
+    E e3 ::> >(dog,ears,metallic)
+    E e4 ::> >(dog,ears,wings)
+    E e5 ::> >(dog,ears,rectangular)
+    E e6 ::> >(dog,ears,long)
+
+    E e7 ::> >(dog,hairy,wheels)
+    E e8 ::> >(dog,hairy,metallic)
+    E e9 ::> >(dog,hairy,wings)
+    E e10 ::> >(dog,hairy,rectangular)
+    E e11 ::> >(dog,hairy,long)
 }
 
 Module module_4 (yolo,truck,clip) {
 	
     E e1 ::> predict(truck)
 
-	#E e2 ::> >(truck,rectangular,eyes)
-    #E e3 ::> >(truck,rectangular,ears)
-    #E e4 ::> >(truck,rectangular,beak)
+	E e2 ::> >(truck,rectangular,eyes)
+    E e3 ::> >(truck,rectangular,ears)
+    E e4 ::> >(truck,rectangular,wings)
+    E e5 ::> >(truck,rectangular,hairy)
+
+    E e6 ::> >(truck,long,eyes)
+    E e7 ::> >(truck,long,ears)
+    E e8 ::> >(truck,long,wings)
+    E e9 ::> >(truck,long,hairy)
 }
 
 Module module_5 (yolo,airplane,clip) {
 	
     E e1 ::> predict(airplane)
 
-	#E e2 ::> >(airplane,wings,eyes)
-    #E e3 ::> >(airplane,wings,ears)
-    #E e4 ::> >(airplane,wings,rectangular)
+	E e2 ::> >(airplane,wings,eyes)
+    E e3 ::> >(airplane,wings,ears)
+    E e4 ::> >(airplane,wings,rectangular)
+    E e4 ::> >(airplane,wings,wheels)
+
+    E e5 ::> >(airplane,rudder,eyes)
+    E e6 ::> >(airplane,rudder,ears)
+    E e7 ::> >(airplane,rudder,rectangular)
+    E e8 ::> >(airplane,rudder,wheels)
 }

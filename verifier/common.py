@@ -24,7 +24,7 @@ image_focus_regions = {}   # Focus regions of images
 class_embeddings = {}      # Image embeddings of classes 
 concept_embeddings = {}     # Text embeddings of concepts
 
-relevant_concepts = {"airplane":["wings","metallic","long","tall"],
+relevant_concepts = {"airplane":["wings","metallic","long","tall","rudder"],
                      "car":["wheels","metallic","rectangular"],
                      "cat":["ears","eyes","hairy"],
                      "truck":["wheels","text","metallic","rectangular","long","tall"],
@@ -35,4 +35,4 @@ relevant_concepts = {"airplane":["wings","metallic","long","tall"],
                      "frog":["wet"],
                      "bird":["wings","beak","patterned"]}
 
-concepts = ["wings","metallic","long","tall","wheels","rectangular","ears","eyes","hairy","text","wet","longsnout","floppyears","tail","mane","beak","patterned","horns","colored-eyes"]
+concepts = ["wings","metallic","long","tall","wheels","rectangular","ears","eyes","hairy","text","wet","longsnout","floppyears","tail","mane","beak","patterned","horns","colored-eyes","rudder"]
