@@ -268,8 +268,8 @@ def optimize(cls,focus_region, con_list = []):
     
     if con_list:
         # print("Entering loop")
-        rel_con_embd = concept_embeddings[con_list[0]]
-        irrel_con_embd = concept_embeddings[con_list[1]]
+        rel_con_embd = concept_embeddings[con_list[0].replace("_"," ")]
+        irrel_con_embd = concept_embeddings[con_list[1].replace("_"," ")]
         
         # Add constraints for the concept relation
         model.addCons(sum(z[i] * (irrel_con_embd[i] / np.linalg.norm(irrel_con_embd)) for i in range(512)) >=

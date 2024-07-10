@@ -1,156 +1,170 @@
-class stop
-class pedestrians
-class wild_animals_crossing
-class children_crossing
-class speed_limit_30kmph
-class speed_limit_60kmph
-class end_of_speed_limit_80kmph
-
-con hexagon_shape
-con triangle_shape
-con circle_shape
-
-con stop_text
-
-con children_graphic
-con animals_graphic
-con striked_out_graphic
-con pedestrian_graphic
-
-con number_thirty
-con number_sixty
-con number_eighty
-
-network yolo
+network zero_shot_clip
 rep clip
 
-Module module_1 (yolo,stop,clip) {
-	
-    E e1 ::> predict(stop)
+class stop_and_give_way_traffic_sign
+class children_crossing_ahead_traffic_sign
+class speed_limit_30kmph_traffic_sign
+class speed_limit_60kmph_traffic_sign
+class end_of_speed_limit_80kmph_traffic_sign
+class pedestrians_in_road_ahead_traffic_sign
+class wild_animals_traffic_sign
 
-	E e2 ::> >(stop,hexagon_shape,triangle_shape)
-    E e3 ::> >(stop,hexagon_shape,circle_shape)
+# Shapes
+# ---------------
+con circle_shape
+con octagon_shape
+con square_shape
+con triangle_shape
+con inverted_triangle_shape
 
-    E e4 ::> >(stop,stop_text,number_thirty)
-    E e5 ::> >(stop,stop_text,number_sixty)
-    E e6 ::> >(stop,stop_text,number_eighty)
-    E e7 ::> >(stop,stop_text,children_graphic)
-    E e8 ::> >(stop,stop_text,pedestrian_graphic)
-    E e9 ::> >(stop,stop_text,striked_out_graphic)
-    E e10 ::> >(stop,stop_text,animals_graphic)
+# Text
+# ---------------
+con word_STOP_in_white_letters
 
-    #E e11 ::> >(stop,children_graphic,stop_text)
-    #E e12 ::> >(stop,pedestrian_graphic,stop_text)
-    #E e13 ::> >(stop,striked_out_graphic,stop_text)
-    #E e13 ::> >(stop,animals_graphic,stop_text)
+# Number
+# ---------------
+con number_30_in_black
+con number_60_in_black
+con number_80_in_black
+
+con diagonal_black_stripes
+
+con two_black_figures_of_children
+con black_figure_of_a_pedestrian_walking
+con black_symbol_of_a_deer_leaping
+con black_symbol_of_a_person_digging
+
+con white_arrow_pointing_to_the_left
+con white_arrow_pointing_to_the_right
+
+Module module_0 (zero_shot_clip,stop_and_give_way_traffic_sign,clip) {
+
+    E e1 ::> predict(stop_and_give_way_traffic_sign)
+
+    E e2 ::> >(stop_and_give_way_traffic_sign,octagon_shape,triangle_shape)
+    E e3 ::> >(stop_and_give_way_traffic_sign,octagon_shape,circle_shape)
+    E e4 ::> >(stop_and_give_way_traffic_sign,octagon_shape,square_shape)
+    E e5 ::> >(stop_and_give_way_traffic_sign,octagon_shape,inverted_triangle_shape)
+
+    E e6 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,number_30_in_black)
+    E e7 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,number_60_in_black)
+    E e8 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,number_80_in_black)
+    E e9 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,diagonal_black_stripes)
+    E e10 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,two_black_figures_of_children)
+    E e11 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,black_figure_of_a_pedestrian_walking)
+    E e12 ::> >(stop_and_give_way_traffic_sign,word_STOP_in_white_letters,black_symbol_of_a_deer_leaping)
 }
 
-Module module_2 (yolo,children_crossing,clip) {
-	
-    E e1 ::> predict(children_crossing)
+Module module_1 (zero_shot_clip,children_crossing_ahead_traffic_sign,clip) {
 
-	E e2 ::> >(children_crossing,triangle_shape,circle_shape)
-    E e3 ::> >(children_crossing,triangle_shape,hexagon_shape)
+    E e1 ::> predict(children_crossing_ahead_traffic_sign)
 
-    E e4 ::> >(children_crossing,children_graphic,stop_text)
-    E e5 ::> >(children_crossing,children_graphic,number_thirty)
-    E e6 ::> >(children_crossing,children_graphic,number_sixty)
-    E e7 ::> >(children_crossing,children_graphic,number_eighty)
-    E e8 ::> >(children_crossing,children_graphic,striked_out_graphic)
-    E e9 ::> >(children_crossing,children_graphic,pedestrian_graphic)
-    E e10 ::> >(children_crossing,children_graphic,animals_graphic)
+    E e2 ::> >(children_crossing_ahead_traffic_sign,triangle_shape,octagon_shape)
+    E e3 ::> >(children_crossing_ahead_traffic_sign,triangle_shape,circle_shape)
+    E e4 ::> >(children_crossing_ahead_traffic_sign,triangle_shape,square_shape)
+    E e5 ::> >(children_crossing_ahead_traffic_sign,triangle_shape,inverted_triangle_shape)
 
+    E e6 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,number_30_in_black)
+    E e7 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,number_60_in_black)
+    E e8 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,number_80_in_black)
+    E e9 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,diagonal_black_stripes)
+    E e10 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,word_STOP_in_white_letters)
+    E e11 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,black_figure_of_a_pedestrian_walking)
+    E e12 ::> >(children_crossing_ahead_traffic_sign,two_black_figures_of_children,black_symbol_of_a_deer_leaping)
 }
 
-Module module_3 (yolo,speed_limit_30kmph,clip) {
-	
-    E e1 ::> predict(speed_limit_30kmph)
+Module module_2 (zero_shot_clip,speed_limit_30kmph_traffic_sign,clip) {
 
-	E e2 ::> >(speed_limit_30kmph,circle_shape,triangle_shape)
-    E e3 ::> >(speed_limit_30kmph,circle_shape,hexagon_shape)
+    E e1 ::> predict(speed_limit_30kmph_traffic_sign)
 
-    E e4 ::> >(speed_limit_30kmph,number_thirty,stop_text)
-    E e5 ::> >(speed_limit_30kmph,number_thirty,number_sixty)
-    E e6 ::> >(speed_limit_30kmph,number_thirty,number_eighty)
-    E e7 ::> >(speed_limit_30kmph,number_thirty,striked_out_graphic)
-    E e8 ::> >(speed_limit_30kmph,number_thirty,children_graphic)
-    E e9 ::> >(speed_limit_30kmph,number_thirty,pedestrian_graphic)
-    E e10 ::> >(speed_limit_30kmph,number_thirty,animals_graphic)
-	
+    E e2 ::> >(speed_limit_30kmph_traffic_sign,circle_shape,octagon_shape)
+    E e3 ::> >(speed_limit_30kmph_traffic_sign,circle_shape,triangle_shape)
+    E e4 ::> >(speed_limit_30kmph_traffic_sign,circle_shape,square_shape)
+    E e5 ::> >(speed_limit_30kmph_traffic_sign,circle_shape,inverted_triangle_shape)
+
+    E e6 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,number_60_in_black)
+    E e7 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,number_80_in_black)
+    E e8 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,diagonal_black_stripes)
+    E e9 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,word_STOP_in_white_letters)
+    E e10 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,two_black_figures_of_children)
+    E e11 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,black_figure_of_a_pedestrian_walking)
+    E e12 ::> >(speed_limit_30kmph_traffic_sign,number_30_in_black,black_symbol_of_a_deer_leaping)
 }
 
-Module module_3 (yolo,speed_limit_60kmph,clip) {
-	
-    E e1 ::> predict(speed_limit_60kmph)
+Module module_2 (zero_shot_clip,speed_limit_60kmph_traffic_sign,clip) {
 
-	E e2 ::> >(speed_limit_60kmph,circle_shape,triangle_shape)
-    E e3 ::> >(speed_limit_60kmph,circle_shape,hexagon_shape)
+    E e1 ::> predict(speed_limit_60kmph_traffic_sign)
 
-    E e4 ::> >(speed_limit_60kmph,number_sixty,stop_text)
-    E e5 ::> >(speed_limit_60kmph,number_sixty,number_thirty)
-    E e6 ::> >(speed_limit_60kmph,number_sixty,number_eighty)
-    E e7 ::> >(speed_limit_60kmph,number_sixty,striked_out_graphic)
-    E e8 ::> >(speed_limit_60kmph,number_sixty,children_graphic)
-    E e9 ::> >(speed_limit_60kmph,number_sixty,pedestrian_graphic)
-    E e10 ::> >(speed_limit_60kmph,number_sixty,animals_graphic)
+    E e2 ::> >(speed_limit_60kmph_traffic_sign,circle_shape,octagon_shape)
+    E e3 ::> >(speed_limit_60kmph_traffic_sign,circle_shape,triangle_shape)
+    E e4 ::> >(speed_limit_60kmph_traffic_sign,circle_shape,square_shape)
+    E e5 ::> >(speed_limit_60kmph_traffic_sign,circle_shape,inverted_triangle_shape)
+
+    E e6 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,number_30_in_black)
+    E e7 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,number_80_in_black)
+    E e8 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,diagonal_black_stripes)
+    E e9 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,word_STOP_in_white_letters)
+    E e10 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,two_black_figures_of_children)
+    E e11 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,black_figure_of_a_pedestrian_walking)
+    E e12 ::> >(speed_limit_60kmph_traffic_sign,number_60_in_black,black_symbol_of_a_deer_leaping)
 }
 
-Module module_4 (yolo,end_of_speed_limit_80kmph,clip) {
-	
-    E e1 ::> predict(end_of_speed_limit_80kmph)
+Module module_3 (zero_shot_clip,end_of_speed_limit_80kmph_traffic_sign,clip) {
 
-	E e2 ::> >(end_of_speed_limit_80kmph,circle_shape,triangle_shape)
-    E e3 ::> >(end_of_speed_limit_80kmph,circle_shape,hexagon_shape)
+    E e1 ::> predict(end_of_speed_limit_80kmph_traffic_sign)
 
-    E e4 ::> >(end_of_speed_limit_80kmph,number_eighty,stop_text)
-    E e5 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,stop_text)
+    E e2 ::> >(end_of_speed_limit_80kmph_traffic_sign,circle_shape,octagon_shape)
+    E e3 ::> >(end_of_speed_limit_80kmph_traffic_sign,circle_shape,triangle_shape)
+    E e4 ::> >(end_of_speed_limit_80kmph_traffic_sign,circle_shape,square_shape)
+    E e5 ::> >(end_of_speed_limit_80kmph_traffic_sign,circle_shape,inverted_triangle_shape)
 
-    E e6 ::> >(end_of_speed_limit_80kmph,number_eighty,number_thirty)
-    E e7 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,number_thirty)
+    E e6 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,number_30_in_black)
+    E e7 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,number_60_in_black)
+    E e8 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,word_STOP_in_white_letters)
+    E e9 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,two_black_figures_of_children)
+    E e10 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,black_figure_of_a_pedestrian_walking)
+    E e11 ::> >(end_of_speed_limit_80kmph_traffic_sign,number_80_in_black,black_symbol_of_a_deer_leaping)
 
-    E e8 ::> >(end_of_speed_limit_80kmph,number_eighty,number_sixty)
-    E e9 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,number_sixty)
-
-    E e10 ::> >(end_of_speed_limit_80kmph,number_eighty,children_graphic)
-    E e11 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,children_graphic)
-
-    E e12 ::> >(end_of_speed_limit_80kmph,number_eighty,pedestrian_graphic)
-    E e13 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,pedestrian_graphic)
-
-    E e14 ::> >(end_of_speed_limit_80kmph,number_eighty,animals_graphic)
-    E e15 ::> >(end_of_speed_limit_80kmph,striked_out_graphic,animals_graphic)
+    E e12 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,number_30_in_black)
+    E e13 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,number_60_in_black)
+    E e14 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,word_STOP_in_white_letters)
+    E e15 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,two_black_figures_of_children)
+    E e16 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,black_figure_of_a_pedestrian_walking)
+    E e17 ::> >(end_of_speed_limit_80kmph_traffic_sign,diagonal_black_stripes,black_symbol_of_a_deer_leaping)
 }
 
-Module module_4 (yolo,pedestrians,clip) {
-	
-    E e1 ::> predict(pedestrians)
+Module module_4 (zero_shot_clip,pedestrians_in_road_ahead_traffic_sign,clip) {
 
-    E e2 ::> >(pedestrians,triangle_shape,circle_shape)
-    E e3 ::> >(pedestrians,triangle_shape,hexagon_shape)
+    E e1 ::> predict(pedestrians_in_road_ahead_traffic_sign)
 
-	E e4 ::> >(pedestrians,pedestrian_graphic,stop_text)
-    E e5 ::> >(pedestrians,pedestrian_graphic,number_thirty)
-    E e6 ::> >(pedestrians,pedestrian_graphic,number_sixty)
-    E e7 ::> >(pedestrians,pedestrian_graphic,number_eighty)
-    E e8 ::> >(pedestrians,pedestrian_graphic,striked_out_graphic)
-    E e9 ::> >(pedestrians,pedestrian_graphic,children_graphic)
-    E e10 ::> >(pedestrians,pedestrian_graphic,animals_graphic)
-	
+    E e2 ::> >(pedestrians_in_road_ahead_traffic_sign,triangle_shape,octagon_shape)
+    E e3 ::> >(pedestrians_in_road_ahead_traffic_sign,triangle_shape,circle_shape)
+    E e4 ::> >(pedestrians_in_road_ahead_traffic_sign,triangle_shape,square_shape)
+    E e5 ::> >(pedestrians_in_road_ahead_traffic_sign,triangle_shape,inverted_triangle_shape)
+
+    E e6 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,number_30_in_black)
+    E e7 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,number_60_in_black)
+    E e8 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,number_80_in_black)
+    E e9 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,diagonal_black_stripes)
+    E e10 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,word_STOP_in_white_letters)
+    E e11 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,two_black_figures_of_children)
+    E e12 ::> >(pedestrians_in_road_ahead_traffic_sign,black_figure_of_a_pedestrian_walking,black_symbol_of_a_deer_leaping)
 }
 
-Module module_4 (yolo,wild_animals_crossing,clip) {
-	
-    E e1 ::> predict(wild_animals_crossing)
+Module module_5 (zero_shot_clip,wild_animals_traffic_sign,clip) {
 
-	E e2 ::> >(wild_animals_crossing,triangle_shape,circle_shape)
-    E e3 ::> >(wild_animals_crossing,triangle_shape,hexagon_shape)
+    E e1 ::> predict(wild_animals_traffic_sign)
 
-	E e4 ::> >(wild_animals_crossing,animals_graphic,stop_text)
-    E e5 ::> >(wild_animals_crossing,animals_graphic,number_thirty)
-    E e6 ::> >(wild_animals_crossing,animals_graphic,number_sixty)
-    E e7 ::> >(wild_animals_crossing,animals_graphic,number_eighty)
-    E e8 ::> >(wild_animals_crossing,animals_graphic,striked_out_graphic)
-    E e9 ::> >(wild_animals_crossing,animals_graphic,children_graphic)
-    E e10 ::> >(wild_animals_crossing,animals_graphic,pedestrian_graphic)
-	
+    E e2 ::> >(wild_animals_traffic_sign,triangle_shape,octagon_shape)
+    E e3 ::> >(wild_animals_traffic_sign,triangle_shape,circle_shape)
+    E e4 ::> >(wild_animals_traffic_sign,triangle_shape,square_shape)
+    E e5 ::> >(wild_animals_traffic_sign,triangle_shape,inverted_triangle_shape)
+
+    E e6 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,number_30_in_black)
+    E e7 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,number_60_in_black)
+    E e8 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,number_80_in_black)
+    E e9 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,diagonal_black_stripes)
+    E e10 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,word_STOP_in_white_letters)
+    E e11 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,two_black_figures_of_children)
+    E e12 ::> >(wild_animals_traffic_sign,black_symbol_of_a_deer_leaping,black_figure_of_a_pedestrian_walking)
 }
