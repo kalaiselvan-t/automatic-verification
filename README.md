@@ -12,3 +12,5 @@ Identifying many of the pain points in the existing verification process, this t
 - The specifications are encoded as a MILP problem and solved using the SCIP solver
 
 At the end of the verification process, the tool generates verification artifacts and insights that can be used to improve the model or as evidence for the homologation and certification process.
+
+More details can be found in my [blog](https://kalaiselvan-t.github.io/projects/2024-07-17-automatic-verification/)
