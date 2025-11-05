@@ -332,8 +332,8 @@ The tool revealed a previously unknown pattern in CLIP's traffic sign understand
 **Finding**: For most signs, **shape concepts verify successfully** (circle, triangle, octagon), but **content concepts fail** (numbers, graphics).
 
 **Example**: Speed limit 30 km/h sign
-- ✅ Verified: Circle shape > Triangle shape
-- ❌ Failed: Number 30 > Number 50 (confused)
+- Verified: Circle shape > Triangle shape
+- Failed: Number 30 > Number 50 (confused)
 
 **Safety Impact**: Shape-based classification alone is insufficient for safety-critical decisions. Content verification is essential.
 
@@ -385,7 +385,7 @@ This tool addresses requirements for:
 
 ### Limitations for Production Use
 
-⚠️ **Current Limitations:**
+**Current Limitations:**
 - Verifies CLIP directly (not production traffic sign detectors)
 - Classification only (no bounding box verification)
 - Requires focus region computation from training data
@@ -552,7 +552,3 @@ This traffic sign verification branch was developed as part of a Master's thesis
 - The GTSRB dataset creators at INI, Ruhr University Bochum
 - The authors of the concept-based analysis paper for foundational research
 - The CLIP and PySCIPOpt communities for excellent tools
-
----
-
-**Note**: This is a research prototype demonstrating feasibility. For production autonomous vehicle deployment, additional validation, testing, and certification processes are required per ISO 26262 / ISO 21448 standards.
